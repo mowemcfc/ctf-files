@@ -1,0 +1,37 @@
+use rand::{Rng,SeedableRng};
+use rand::rngs::StdRng;
+use std::fs;
+use std::io::Write;
+use std::str;
+use std::io::LineWriter;
+
+fn get_rng(seed: u64) -> StdRng {
+    return StdRng::seed_from_u64(seed);
+    // for range in 1610000000, 1619999999
+}
+
+fn rand_xor(input : String, mut rng : StdRng) -> String {
+    return input
+        .chars()
+        .into_iter()
+        .map(|c| format!("{:02x}", (c as u8 ^ rng.gen::<u8>())))
+        .collect::<Vec<String>>()
+        .join("");
+}
+
+fn main() -> std::io::Result<()> {
+    for seed in 1610000000..1620000000 {
+        //println!("time: {}", seed);
+        let mut seeded = get_rng(seed);
+        //println!("seeded: {:02x}", seeded.gen::<u8>());
+        let flag = fs::read_to_string("../out.txt")?;
+        let xored = rand_xor(flag,seeded);
+        println!("{}", xored);
+        let mut file = fs::File::create("../decrypted.txt")?;
+        let mut writer = LineWriter::new(file);
+        //writer.write_all(xored.as_bytes())?;
+        //writer.write_all(b"\n")?;
+    }
+    println!("hellooo");
+    Ok(())
+}
