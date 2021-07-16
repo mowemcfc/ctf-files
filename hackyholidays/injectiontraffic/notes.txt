@@ -1,0 +1,8 @@
+sql injection char by char on flag - if query was successful 'Lorem ipsum' string is in response.
+
+be careful as the process was repeated - only use the last
+
+SELECT CHAR(67) + CHAR(84) + CHAR(70) + CHAR(123) + CHAR(56) + CHAR(57) + CHAR(54) + CHAR(102) + CHAR(98) + CHAR(97) + CHAR(57) + CHAR(48)
+ + CHAR(57) + CHAR(56) + CHAR(97) + CHAR(99) + CHAR(56) + CHAR(53) + CHAR(53) + CHAR(51) + CHAR(51) + CHAR(102) + CHAR(99) + 
+CHAR(100) + CHAR(55) + CHAR(98) + CHAR(98) + CHAR(98) + CHAR(49) + CHAR(56) + CHAR(50) + CHAR(102) + CHAR(53) + CHAR(54) + CHAR(57)
+ + CHAR(48) + CHAR(125) AS NumberCodeToCharacter;
