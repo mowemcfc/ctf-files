@@ -20,8 +20,7 @@ def start(argv=[], *a, **kw):
     if args.GDB:
         return gdb.debug([exe] + argv, gdbscript=gdbscript, *a, **kw)
     elif args.REMOTE:
-        return remote("188.166.173.208",31822)
-        return
+        return remote("159.65.51.138",30381)
     else:
         return process([exe] + argv, *a, **kw)
 
