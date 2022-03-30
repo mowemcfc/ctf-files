@@ -7,9 +7,10 @@ import binascii
 
 context.update(arch='amd64')
 exe = './restaurant'
-HOST = '188.166.173.208'
-PORT = 30355
+HOST = '138.68.131.63'
+PORT = 31916
 elf = ELF(exe)
+
 if not args.REMOTE:
     libc = elf.libc
 else:
